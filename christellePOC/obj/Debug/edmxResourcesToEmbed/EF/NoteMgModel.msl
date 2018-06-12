@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NoteMgModelStoreContainer" CdmEntityContainer="NoteMgEntities">
+    <FunctionImportMapping FunctionImportName="Client_Add" FunctionName="NoteMgModel.Store.Client_Add" />
+    <FunctionImportMapping FunctionImportName="Client_GetClient" FunctionName="NoteMgModel.Store.Client_GetClient">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NoteMgModel.Client_GetClient_Result">
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="middleName" ColumnName="middleName" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="picturePath" ColumnName="picturePath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Note_GetUserNotes" FunctionName="NoteMgModel.Store.Note_GetUserNotes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NoteMgModel.Note_GetUserNotes_Result">
+          <ScalarProperty Name="noteTitle" ColumnName="noteTitle" />
+          <ScalarProperty Name="noteContent" ColumnName="noteContent" />
+          <ScalarProperty Name="noteDateCreated" ColumnName="noteDateCreated" />
+          <ScalarProperty Name="noteDateModified" ColumnName="noteDateModified" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

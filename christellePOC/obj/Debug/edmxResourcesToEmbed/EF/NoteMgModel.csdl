@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NoteMgModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NoteMgEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Client_Add">
+      <Parameter Name="clientID" Mode="In" Type="String" />
+      <Parameter Name="firstName" Mode="In" Type="String" />
+      <Parameter Name="lastName" Mode="In" Type="String" />
+      <Parameter Name="middleName" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="picturePath" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Client_GetClient" ReturnType="Collection(NoteMgModel.Client_GetClient_Result)">
+      <Parameter Name="clientId" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Note_GetUserNotes" ReturnType="Collection(NoteMgModel.Note_GetUserNotes_Result)">
+      <Parameter Name="userID" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Client_GetClient_Result">
+    <Property Type="String" Name="firstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="lastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="middleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="picturePath" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="Note_GetUserNotes_Result">
+    <Property Type="String" Name="noteTitle" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="noteContent" Nullable="false" />
+    <Property Type="DateTime" Name="noteDateCreated" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="noteDateModified" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>
